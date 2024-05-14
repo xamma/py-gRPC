@@ -43,3 +43,13 @@ Send requests
 ```
 python client.py
 ```
+
+Run with Docker:
+```
+docker build -t grpcpy .
+docker run -dp 50051:50051 grpcpy
+```
+
+NOTE: I included 2 Dockerfiles, the normal on is pretty straightforward with a nonroot-user using the python slim base image.  
+The second one is the most minimal, using a distroless base-image and build from a venv.  
+Its smaller than ~100MB which is pretty good for python ;)  
