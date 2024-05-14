@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package greeter;
+
+service Greeter {
+    rpc SayHello (HelloRequest) returns (HelloReply) {}
+    rpc AddItem (Item) returns (ItemReply) {}
+    rpc GetItem (ItemRequest) returns (ItemReply) {}
+    rpc ListItems (Empty) returns (ItemList) {}
+    rpc DeleteItem (ItemRequest) returns (Empty) {}
+}
+
+message Item {
+    string id = 1;
+    string name = 2;
+    int32 quantity = 3;
+}
+
+message HelloRequest {
+    string name = 1;
+}
+
+message HelloReply {
+    string message = 1;
+}
+
+message ItemReply {
+    string id = 1;
+    string name = 2;
+    int32 quantity = 3;
+}
+
+message ItemRequest {
+    string id = 1;
+}
+
+message Empty {}
+
+message ItemList {
+    repeated Item items = 1;
+}
+
+// example dictionary
+/*
+message KeyValuePair {
+    string key = 1;
+    string value = 2;
+}
+
+message Dictionary {
+    repeated KeyValuePair items = 1;
+}
+*/
